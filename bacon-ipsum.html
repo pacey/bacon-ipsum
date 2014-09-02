@@ -1,0 +1,98 @@
+<!--
+    @license
+    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+    Code distributed by Google as part of the polymer project is also
+    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../core-ajax/core-ajax.html">
+
+<!--
+Element providing you a meatier Lorem Ipsum.
+
+##### Example
+
+    <bacon-ipsum></bacon-ipsum>
+
+@element bacon-ipsum
+@blurb Element providing you a meatier Lorem Ipsum.
+@status alpha
+@homepage
+-->
+<polymer-element name="bacon-ipsum" attributes="paragraphs sentences type startWithLorem">
+	<core-ajax auto
+			   url="http://baconipsum.com/api/"
+			   params="{{parameters()}}"
+			   handleAs="json"
+			   response="{{response}}">
+   </core-ajax>
+	<template>
+		<link rel="stylesheet" href="bacon-ipsum.css"/>
+		<template repeat="{{bacon in response}}">
+			<p>{{bacon}}</p>
+		</template>
+	</template>
+
+	<script>
+
+		Polymer('bacon-ipsum', {
+			/**
+			 * The number of paragraphs.
+			 *
+			 * @attribute paragraphs
+			 * @type Number
+			 * @default 1
+			 */
+			paragraphs: 1,
+
+
+			/**
+			 * The number of sentences. Overrides the number of paragraphs if set.
+			 *
+			 * @attribute sentences
+			 * @type Number
+			 * @default undefined
+			 */
+			sentences: undefined,
+
+			/**
+			 * The type of bacon ipsum. Options are 'meat-and-filler' or 'all-meats'.
+			 *
+			 * @property type
+			 * @type String
+			 * @default 'meat-and-filler'
+			 */
+			type: 'meat-and-filler',
+
+			/**
+			 * Controls whether the first paragraph begins with Bacon ipsum etc.
+			 *
+			 * @property startWithLorem
+			 * @type Boolean
+			 * @default true
+			 */
+			startWithLorem: true,
+
+			/**
+			 * This will return the params object for the ajax call to the bacon ipsum api.
+			 *
+			 * @method parameters
+			 * @return {Object} The parameters that will be passed to the bacon ipsum api.
+			 */
+			parameters: function (){
+				return {
+					"paras": this.paragraphs,
+					"type": this.type,
+					"start-with-lorem": this.startWithLorem ? 1 : 0,
+					"sentences": this.sentences
+				}
+			}
+
+		});
+
+	</script>
+
+</polymer-element>
