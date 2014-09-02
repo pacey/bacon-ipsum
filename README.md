@@ -1,8 +1,26 @@
-seed-element
-================
+bacon-ipsum
+===========
 
-See the [component page](http://polymerlabs.github.io/seed-element) for more information.
+A meatier Lorem Ipsum generator provided via a Polymer custom element.
 
-## Getting Started
+Example
+-------
 
-We've put together a [guide to seed-element](http://www.polymer-project.org/docs/start/reusableelements.html) to help get you rolling.
+```
+<bacon-ipsum paragraphs="3"></bacon-ipsum>
+```
+
+Will output 3 meat paragraphs of bacon ipsum.
+
+Tests
+-----
+Test are written in Mocha using the Polymer test tools. To run them open ``tests/runner.html`` in a browser.
+
+Special thanks
+--------------
+This would not have been possible without the work of the person behind [http://baconipsum.com/](http://baconipsum.com/).
+They kindly provide and maintain the api that this Polymer element uses.
+
+Licence
+-------
+MIT
