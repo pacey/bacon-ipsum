@@ -23,14 +23,13 @@ Element providing you a meatier Lorem Ipsum.
 @homepage
 -->
 <polymer-element name="bacon-ipsum" attributes="paragraphs sentences type startWithLorem">
-	<core-ajax auto
-			   url="http://baconipsum.com/api/"
-			   params="{{parameters()}}"
-			   handleAs="json"
-			   response="{{response}}">
-   </core-ajax>
 	<template>
-		<link rel="stylesheet" href="bacon-ipsum.css"/>
+		<core-ajax auto
+				   url="http://baconipsum.com/api/"
+				   params="{{parameters()}}"
+				   handleAs="json"
+				   response="{{response}}">
+		</core-ajax>
 		<template repeat="{{bacon in response}}">
 			<p>{{bacon}}</p>
 		</template>
