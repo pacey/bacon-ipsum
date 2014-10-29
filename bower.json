@@ -5,7 +5,7 @@
     "James Pace <james.a.pace@gmail.com>"
   ],
   "description": "Element providing you a meatier Lorem Ipsum.",
-  "keywords": "polymer, web-components, bacon, lorem, ispum",
+  "keywords": ["polymer", "web-components", "bacon", "lorem", "ispum"],
   "main": "bacon-ipsum.html",
   "license": "MIT",
   "homepage": "https://github.com/pacey/bacon-ipsum/",
